@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const notRead = JSON.parse(localStorage.getItem(haventRead)) || [];
 
     const id = new Date().getTime();
-    const judul = bookFormAuthor.value;
+    const judul = bookFormTitle.value;
     const author = bookFormAuthor.value;
-    const tahun = bookFormAuthor.value;
+    const tahun = bookFormYear.value;
     const isComplete = bookFormIsComplete.checked;
 
     const book = {
@@ -97,6 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const shelfNotRead = () => {
     const read = JSON.parse(localStorage.getItem(alreadyRead)) || [];
     const notRead = JSON.parse(localStorage.getItem(haventRead)) || [];
+
+    incompleteBookList.innerHTML = "";
+		completeBookList.innerHTML = "";
 
     read.map((e) => {
       completeBookList.innerHTML += `
