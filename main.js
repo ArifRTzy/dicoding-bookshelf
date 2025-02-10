@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
       book.title.toLowerCase().includes(input)
     );
 
-    console.log(result)
-    console.log(resultNot)
+    console.log(result);
+    console.log(resultNot);
 
     result.forEach((e) => {
       completeBookList.innerHTML += `
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const notRead = JSON.parse(localStorage.getItem(haventRead)) || [];
 
     incompleteBookList.innerHTML = "";
-		completeBookList.innerHTML = "";
+    completeBookList.innerHTML = "";
 
     read.map((e) => {
       completeBookList.innerHTML += `
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       localStorage.setItem(alreadyRead, JSON.stringify(result));
       localStorage.setItem(haventRead, JSON.stringify(resultNot));
-      shelfNotRead()
+      shelfNotRead();
     }
     if (event.target.matches('[data-testid="bookItemIsCompleteButton"]')) {
       const read = JSON.parse(localStorage.getItem(alreadyRead)) || [];
@@ -176,16 +176,16 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem(haventRead, JSON.stringify(resultNots));
 
       if (result) {
-        result.isComplete = false
+        result.isComplete = false;
         const readArray = [...notRead, result];
         localStorage.setItem(haventRead, JSON.stringify(readArray));
       }
       if (resultNot) {
-        resultNot.isComplete = true
+        resultNot.isComplete = true;
         const readArray = [...read, resultNot];
         localStorage.setItem(alreadyRead, JSON.stringify(readArray));
       }
-      shelfNotRead()
+      shelfNotRead();
     }
   });
 });
